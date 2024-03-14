@@ -57,7 +57,7 @@ def ask_claude(title, summary, ai_request):
             timeout=600.0,
         )
         response = client.messages.create(
-            model="claude-3-sonnet-20240229",
+            model="claude-3-opus-20240229",
             max_tokens=2000,
             temperature=0.1,
             system=SYSTEM_SETTINGS,
