@@ -58,7 +58,7 @@ def ask_claude(title, summary, ai_request):
         )
         response = client.messages.create(
             model="claude-3-opus-20240229",
-            max_tokens=2000,
+            max_tokens=4000,
             temperature=0.1,
             system=SYSTEM_SETTINGS,
             messages=memory,
