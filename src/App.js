@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, TextField, Button, Box, CircularProgress } from '@mui/material';
+import Paper from '@mui/material/Paper';
 
 function App() {
   const [title, setTitle] = useState('');
@@ -26,7 +27,7 @@ function App() {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Typography variant="h4" align="center" gutterBottom>
         小説煽り文生成
       </Typography>
@@ -69,12 +70,14 @@ function App() {
         </Box>
       )}
       {generatedText && (
-        <Box sx={{ mt: 3, p: 2, backgroundColor: '#f1f1f1', borderRadius: '4px' }}>
-          <Typography variant="h6" gutterBottom>
+        <Paper elevation={3} sx={{ mt: 3, p: 3, backgroundColor: '#f5f5f5', borderRadius: '8px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+          <Typography variant="h5" gutterBottom sx={{ color: '#333', fontWeight: 'bold' }}>
             生成された煽り文:
           </Typography>
-          <Typography dangerouslySetInnerHTML={{ __html: generatedText }}></Typography>
-        </Box>
+          <Box sx={{ p: 2, backgroundColor: '#fff', borderRadius: '4px', boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.05)' }}>
+            <Typography dangerouslySetInnerHTML={{ __html: generatedText }} sx={{ color: '#555', fontSize: '1.1rem', lineHeight: 1.6 }}></Typography>
+          </Box>
+        </Paper>
       )}
     </Container>
   );
